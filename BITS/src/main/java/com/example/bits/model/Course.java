@@ -10,19 +10,19 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "courseId")
+    @Column(name = "courseId", nullable = false, unique = true)
     private  String courseId;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "sem1")
+    @Column(name = "sem1", nullable = false)
     private boolean sem1;
 
-    @Column(name = "sem2")
+    @Column(name = "sem2", nullable = false)
     private boolean sem2;
 
-    @Column(name = "sem3")
+    @Column(name = "sem3", nullable = false)
     private boolean sem3;
 
     public long getId() {

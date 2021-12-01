@@ -15,11 +15,13 @@ public class CourseController {
 
     @Autowired
     private CourseService courseService;
+
     @GetMapping("/course")
     public String viewHomePage(Model model){
         model.addAttribute("listCourses", courseService.getAllCourses());
         return "courseManagementPage";
     }
+
     @GetMapping("/showCourseRegisterForm")
     public String showCourseRegisterForm(Model model){
         Course course = new Course();

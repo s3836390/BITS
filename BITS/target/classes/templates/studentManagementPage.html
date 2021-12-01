@@ -20,6 +20,7 @@
         <th>Student Id</th>
         <th>Student Name</th>
         <th>Student Email</th>
+        <th>Student Password</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -28,6 +29,7 @@
         <td th:text="${student.studentId}"></td>
         <td th:text="${student.name}"></td>
         <td th:text="${student.email}"></td>
+        <td th:text="${student.password}"></td>
         <td>
           <a th:href="@{/showStudentUpdateForm/{id}(id=${student.id})}" class="btn btn-primary">Update</a>
           <a th:href="@{/deleteStudent/{id}(id=${student.id})}" class="btn btn-danger">Delete</a>

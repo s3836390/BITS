@@ -10,13 +10,16 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "studentId")
+    @Column(name = "studentId", nullable = false, unique = true)
     private  String studentId;
 
-    @Column(name = "name")
+    @Column(name = "password", nullable = false, unique = true)
+    private String password;
+
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     public long getId() {
@@ -33,6 +36,14 @@ public class Student {
 
     public void setStudentId(String studentId) {
         this.studentId = studentId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

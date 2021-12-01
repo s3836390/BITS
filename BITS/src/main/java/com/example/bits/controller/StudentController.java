@@ -15,12 +15,13 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-    //display list of students
-    @GetMapping("/")
+
+    @GetMapping("/student")
     public String viewHomePage(Model model){
         model.addAttribute("listStudents", studentService.getAllStudents());
         return "studentManagementPage";
     }
+
     @GetMapping("/showStudentRegisterForm")
     public String showStudentRegisterForm(Model model){
         Student student = new Student();
@@ -31,7 +32,7 @@ public class StudentController {
     @PostMapping("/saveStudent")
     public String saveStudent(@ModelAttribute("student") Student student){
         studentService.saveStudent(student);
-        return "redirect:/";
+        return "redirect:/student";
     }
 
     @GetMapping("/showStudentUpdateForm/{id}")
@@ -44,6 +45,6 @@ public class StudentController {
     @GetMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable(value = "id") long id){
         this.studentService.deleteStudentById(id);
-        return "redirect:/";
+        return "redirect:/student";
     }
 }
