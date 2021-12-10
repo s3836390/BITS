@@ -9,8 +9,48 @@
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+  </style>
 </head>
 <body>
+<ul>
+  <li><a href="/users">User List</a></li>
+  <li><a href="/student">Student Management</a></li>
+  <li><a href="/course">Course Management</a></li>
+  <li>
+    <div>
+      <a>
+        <form th:action="@{/logout}" method="post">
+            Welcome <b>[[${#request.userPrincipal.principal.name}]]</b>
+          <input type="submit" value="Sign Out" />
+        </form>
+      </a>
+    </div>
+  </li>
+</ul>
 <div class="container my-2">
   <h1>Courses List</h1>
   <a th:href = "@{/showCourseRegisterForm}" class="btn btn-primary btn-sm mb-3"> Save Course </a>
