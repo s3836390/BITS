@@ -3,8 +3,12 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title>Online Enrollment System Website</title>
     <link rel="stylesheet" href="style.css">
     <link th:href="@{/style.css}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,19 +16,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="styesheet"
           href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <section class="header">
     <nav>
         <a href="index.html"><img src="images/RMIT_logo_about.jpeg"  alt=""></a>
         <div class="nav-links">
             <i class="fa fa-times"></i>
             <ul>
+                <li><a href="/users">User List</a></li>
+                <li><a href="/student">Student Management</a></li>
+                <li><a href="/course">Course Management</a></li>
+                <li><a href="/helper">Helper</a></li>
+                <li><a><form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" />
+                </form></a></li>
             </ul>
         </div>
         <i class="fa fa-bars"></i>
@@ -40,6 +46,20 @@
     </div>
 
 </section>
-
+<ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/users">User List</a></li>
+    <li><a href="/student">Student Management</a></li>
+    <li><a href="/course">Course Management</a></li>
+    <li><a href="/helper">Helper</a></li>
+</ul>
+<div class="container text-center">
+    <h1><b>[[${#request.userPrincipal.principal.name}]]</b></h1>
+    <h3><a>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out" />
+        </form>
+    </a></h3>
+</div>
 </body>
 </html>

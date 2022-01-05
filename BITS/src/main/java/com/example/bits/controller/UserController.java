@@ -23,6 +23,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/home")
+    public String viewHome(){
+        return "home";
+    }
+
+    @GetMapping("/helper")
+    public String viewHelper(){
+        return "helper";
+    }
+
     @GetMapping("/")
     public String viewLoginPage(){
         return "loginPage";

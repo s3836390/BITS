@@ -72,4 +72,9 @@ public class Course {
     public void setSem3(boolean sem3) {
         this.sem3 = sem3;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

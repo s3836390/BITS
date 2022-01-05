@@ -3,18 +3,43 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Online Enrollment System Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="styesheet"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
     <meta charset="UTF-8">
-    <title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container text-center">
-        <h1>Welcome</h1>
-        <h3><a th:href="@{/register}">Register</a></h3>
-        <h3><a th:href="@{/login}">Login</a></h3>
+
+<section class="header">
+    <nav>
+        <a href="index.html"><img src="images/RMIT_logo_about.jpeg"  alt=""></a>
+        <div class="nav-links">
+            <i class="fa fa-times"></i>
+            <ul>
+            </ul>
+        </div>
+        <i class="fa fa-bars"></i>
+
+    </nav>
+
+    <div class="text-box">
+        <h1> RMIT University</h1>
+        <p>IT'S TIME TO ENROL<br> Online enrolment is now open!</p>
+        <a href="" class="hero-btn" th:href="@{/register}">Register</a>
+        <a href="" class="hero-btn" th:href="@{/login}">Login</a>
+
     </div>
+
+</section>
 
 </body>
 </html>

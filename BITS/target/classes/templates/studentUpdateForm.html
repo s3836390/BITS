@@ -36,21 +36,14 @@
   </style>
 </head>
 <body>
-<ul>
-  <li><a href="/users">User List</a></li>
-  <li><a href="/student">Student Management</a></li>
-  <li><a href="/course">Course Management</a></li>
-  <li>
-    <div>
-      <a>
-        <form th:action="@{/logout}" method="post">
-          Welcome <b>[[${#request.userPrincipal.principal.name}]]</b>
-          <input type="submit" value="Sign Out" />
-        </form>
-      </a>
-    </div>
-  </li>
-</ul>
+<div class="container text-center">
+  <h1><b>[[${#request.userPrincipal.principal.name}]]</b></h1>
+  <h3><a>
+    <form th:action="@{/logout}" method="post">
+      <input type="submit" value="Sign Out" />
+    </form>
+  </a></h3>
+</div>
   <h1>Student Update Page</h1>
   <hr>
   <h2>Update Student</h2>
@@ -60,6 +53,15 @@
     <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
     <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
     <input type="text" th:field="*{password}" class="form-control mb-4 col-4">
+    <div class="form-group row">
+      <label class="col-4 col-form-label">Courses: </label>
+      <div class="col-8">
+        <th:block th:each="course: ${listCourses}">
+          <input type="checkbox" th:field="*{courses}"
+                 th:text="${course.name}" th:value="${course.id}" class="m-2" />
+        </th:block>
+      </div>
+    </div>
     <button type="submit" class="btn btn-info col-2"> Save Student</button>
   </form>
 </body>

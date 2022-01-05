@@ -1,6 +1,9 @@
 package com.example.bits.controller;
 
+import com.example.bits.model.Course;
+import com.example.bits.model.Role;
 import com.example.bits.model.Student;
+import com.example.bits.service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +13,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private StudentServiceImpl studentServiceImpl;
 
     @GetMapping("/student")
     public String viewHomePage(Model model){
@@ -38,7 +46,9 @@ public class StudentController {
     @GetMapping("/showStudentUpdateForm/{id}")
     public String showStudentUpdateForm(@PathVariable(value = "id") long id, Model model){
         Student student =studentService.getStudentById(id);
+        List<Course> listCourses = studentServiceImpl.listCourses();
         model.addAttribute("student", student);
+        model.addAttribute("listCourses", listCourses);
         return "studentUpdateForm";
     }
 

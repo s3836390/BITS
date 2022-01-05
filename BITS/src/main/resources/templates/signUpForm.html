@@ -35,21 +35,6 @@
   </style>
 </head>
 <body>
-<ul>
-  <li><a href="/users">User List</a></li>
-  <li><a href="/student">Student Management</a></li>
-  <li><a href="/course">Course Management</a></li>
-  <li>
-    <div>
-      <a>
-        <form th:action="@{/logout}" method="post">
-          Welcome <b>[[${#request.userPrincipal.principal.name}]]</b>
-          <input type="submit" value="Sign Out" />
-        </form>
-      </a>
-    </div>
-  </li>
-</ul>
 <div class="container text-center">
   <div>
     <h1>Sign Up</h1>
